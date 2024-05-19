@@ -1,7 +1,5 @@
-
-import type { pushScopeId } from 'vue';
-
-import type { errorMessages } from 'vue/compiler-sfc';
+import type { parse } from 'vue/compiler-sfc'; import type { pushScopeId } from
+'vue'; import type { errorMessages } from 'vue/compiler-sfc';
 <template>
   <form @submit.prevent="handleSubmit" class="relative">
     <textarea
@@ -31,28 +29,35 @@ import type { errorMessages } from 'vue/compiler-sfc';
 </template>
 
 <script setup lang="ts">
+import { marked } from "marked";
+import dompurify from "dompurify";
+
 const newMessage = ref("");
 const messages = useMessages();
 const { customerInitials } = useCustomer();
-const handleSubmit = () => {
+const handleSubmit = async () => {
   messages.value.push({
     name: customerInitials.value,
     message: newMessage.value,
     isBruno: false,
     timestamp: new Date().toLocaleString([], {
       timeStyle: "short",
-    })
-  })
+    }),
+  });
 
   newMessage.value = "";
 
+  const parsedMessage = await marked.parse(
+    dompurify.sanitize("Hello **World**!")
+  );
+
   messages.value.push({
     name: "Bruno",
-    message: newMessage.value,
+    message: parsedMessage,
     isBruno: true,
     timestamp: new Date().toLocaleString([], {
       timeStyle: "short",
-    })
-  })
+    }),
+  });
 };
 </script>
