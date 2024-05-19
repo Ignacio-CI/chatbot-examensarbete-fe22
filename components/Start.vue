@@ -2,7 +2,7 @@
   <section class="flex flex-col items-center gap-6">
     <img src="/bruno.svg" class="w-64 h-64 rounded-full" />
     <h1 class="text-center font-bold text-2xl">Bruno's Customer Support</h1>
-    <form class="flex flex-col gap-2 w-full">
+    <form @submit.prevent="handleSubmit" class="flex flex-col gap-2 w-full">
       <input
         type="text"
         placeholder="Your name"
@@ -26,3 +26,10 @@
     </form>
   </section>
 </template>
+
+<script setup lang="ts">
+const isChatting = useState("isChatting", () => false);
+const handleSubmit = () => {
+  isChatting.value = true;
+};
+</script>
