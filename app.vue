@@ -11,7 +11,6 @@
           <!-- Start Screen -->
           <Start v-if="!isChatting"/>
           
-
           <!-- Chat Screen -->
           <Chat v-else/>
         </div>
