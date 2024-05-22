@@ -11,9 +11,9 @@ import type { MessageForm } from '#build/components';
         </div>
       </div>
       <div>
-        <div class="font-medium truncate max-w-[9rem] md:max-w-none">Bruno</div>
+        <div class="font-medium truncate max-w-[9rem] md:max-w-none">GritBot</div>
         <div class="text-slate-500 mt-0.5 truncate max-w-[9rem] md:max-w-none">
-          Customer Support Agent
+          Studieassistent och rådgivare
         </div>
       </div>
     </div>
