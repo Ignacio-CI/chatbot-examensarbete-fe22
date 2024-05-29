@@ -11,7 +11,7 @@
           class="w-full transition p-2 text-sm border border-slate-300/60 shadow-sm placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 pr-16 rounded-xl"
         />
         <small class="text-slate-500 italic">
-          Skirv in ditt namn så GritBoten vet vem han pratar med
+          Skirv in ditt namn så GritBoten vet vem han pratar med!
         </small>
         <button
           :disabled="hasNameError"
