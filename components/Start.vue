@@ -34,8 +34,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRuntimeConfig } from '#app';
-const config = useRuntimeConfig();
 const isChatting = useIsChatting();
 const { customerName, hasNameError } = useCustomer();
 
@@ -44,7 +42,6 @@ const run = useCookie("run-id");
 
 const isSubmitted = ref(false);
 const handleSubmit = async () => {
-  console.log(config.public.openaiApiKey);
   isSubmitted.value = true;
 
   const response = await $fetch("/api/thread", {
